@@ -1,0 +1,12 @@
+ <svg
+      fill="#103f5eb3"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+      height="2rem"
+      width="2rem"
+    >
+      <path d="M3 12h18M3 6h18M3 18h18" />
+    </svg>

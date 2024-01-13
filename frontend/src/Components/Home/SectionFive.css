@@ -1,0 +1,28 @@
+.timeline-wrapper {
+    margin-left: 1.5rem;
+    border-left: 10px solid #ddd;
+    height: 90%;
+    
+  }
+  .node {
+    padding-left: 1.5rem;
+    padding-bottom: 2.5rem;
+    position: relative;
+  }
+  .node h3, .node p {
+    margin: 0;
+  }
+  .node::after {
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    background: #3AB7BF;
+    border: 1rem #20ddf2  ;
+    border-width: 1rem;
+    border-radius: 50%;
+    border-spacing: 1rem;
+    position: absolute;
+    top: 1.3rem;
+    left: -1rem;
+  }
+  

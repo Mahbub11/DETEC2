@@ -1,0 +1,12 @@
+#colorPath{
+    animation: colorStroke 1s linear forwards;
+}
+
+@keyframes colorStroke {
+    from{
+        translate: 0 -2px ;
+    }to{
+        translate: 0 50px
+    }
+    
+}

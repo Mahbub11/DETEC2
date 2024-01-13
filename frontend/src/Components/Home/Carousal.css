@@ -1,0 +1,13 @@
+.embla {
+    overflow: hidden;
+  }
+  
+  .embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    background-color: #B4D6FD;
+    width: 20rem;
+    /* height: 15rem; */
+    margin-left: 5rem;
+    border-radius: 5px;
+  }

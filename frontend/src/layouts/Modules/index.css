@@ -1,0 +1,19 @@
+/* .customTab {
+    border: none;
+    height: 2rem;
+    display: flex;
+    gap: 2rem;
+    background-color: rgb(210, 230, 248);
+    border-radius: 10px;
+} */
+
+.ant-layout-content{
+    margin: 0px !important;
+}
+/* .ant-tabs-nav-wrap{
+    border: none !important;
+    background-color: rgb(210, 230, 248);
+} */
+.tab1{
+    font-size: 2rem !important;
+}
