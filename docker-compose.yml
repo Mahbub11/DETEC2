@@ -1,29 +1,15 @@
-version: '3.4'
+version: "3"
 services:
-  
   backend:
-   
-    restart: unless-stopped
-    build:
-      context: ./backend/
-      dockerfile: Dockerfile
-    working_dir: /src
-   
+    image: ${{ secrets.DOCKER_USERNAME }}/det:backend
+    container_name: "backend"
     ports:
       - "3001:3001"
 
   frontend:
+    image: ${{ secrets.DOCKER_USERNAME }}/det:frontend
+    container_name: "frontend"
     depends_on:
       - backend
-    restart: unless-stopped
-    build:
-      context: ./frontend/
-      dockerfile: Dockerfile
-    working_dir: /src
-   
     ports:
       - "3000:3000"
-  
-volumes:
-  database-data:
-  backend-uploads:
