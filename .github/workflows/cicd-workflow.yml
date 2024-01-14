@@ -15,9 +15,9 @@ jobs:
       - name: Build docker container
         run: docker compose build
       - name: Give it a tag
-        run: docker tag detec2 "$DOCKER_USERNAME"/detec2
+        run: docker tag det:latest "$DOCKER_USERNAME"/det:latest
       - name: Publish image to docker hub
-        run: docker push "$DOCKER_USERNAME"/detec2:latest
+        run: docker push "$DOCKER_USERNAME"/det:latest
         
   deploy:
     needs: build
