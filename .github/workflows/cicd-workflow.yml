@@ -16,18 +16,18 @@ jobs:
         working-directory:
           ./backend
         run: docker build -t mahbubrahim/det:backend . 
-      - name: Build docker image frontend
-        working-directory:
-          ./frontend
-        run: docker build -t mahbubrahim/det:frontend . 
-      - name: push docker hub backend1
+      # - name: Build docker image frontend
+      #   working-directory:
+      #     ./frontend
+      #   run: docker build -t mahbubrahim/det:frontend . 
+      - name: push docker hub backend
         run: docker push ${{ secrets.DOCKER_USERNAME }}/det:backend 
-      - name: push docker hub frontend
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/det:frontend 
+      # - name: push docker hub frontend
+      #   run: docker push ${{ secrets.DOCKER_USERNAME }}/det:frontend 
         
   deploy:
     needs: build
     runs-on: self-hosted
     steps:
       - name: Start containers
-        run: sudo docker compose -f "docker-compose.yml" up -d --build
+        run: sudo docker compose  "docker-compose.yml" up -d --build
