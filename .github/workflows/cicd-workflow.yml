@@ -12,20 +12,30 @@ jobs:
         uses: actions/checkout@v3
       - name: Login to docker hub
         run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-      - name: Build docker image 
+      - name: Build docker image backend
         working-directory:
           ./backend
         run: docker build -t mahbubrahim/det:backend . 
-      - name: push docker hub
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/det:backend
+      - name: Build docker image frontend
+        working-directory:
+          ./frontend
+        run: docker build -t mahbubrahim/det:frontend . 
+      - name: push docker hub backend
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/det:backend 
+      - name: push docker hub frontend
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/det:frontend 
         
   deploy:
     needs: build
     runs-on: [ip-172-31-1-127]
     steps:
-      - name: Pull image from docker hub
-        run: docker pull detec2/app:latest
+      - name: Pull image from docker hub backend
+        run: docker pull ${{ secrets.DOCKER_USERNAME }}/det:backend
       - name: Delete old container
-        run: docker rm -f app-container
+        run: docker rm -f backend-container 
+      - name: Pull image from docker hub frontend
+        run: docker pull ${{ secrets.DOCKER_USERNAME }}/det:frontend
+      - name: Delete old container frontend
+        run: docker rm -f frontend-container  
       - name: Run docker container
-        run: docker run -d -p 5000:5000 --name app-container detec2/app
+        run: docker run -d -p 5000:5000 --name det-container det
