@@ -13,9 +13,9 @@ jobs:
       - name: Login to docker hub
         run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
       - name: Build docker container
-        run: docker compose up -d TAG=detec2
+        run: docker compose up -d 
       - name: Publish image to docker hub
-        run: docker push mahbubrahim/detec2:latest
+        run: docker push 
         
   deploy:
     needs: build
