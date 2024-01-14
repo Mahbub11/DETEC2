@@ -15,7 +15,7 @@ jobs:
       - name: Build docker container
         run: docker compose up -d --tag detec2
       - name: Publish image to docker hub
-        run: docker push detec2:latest
+        run: docker push mahbubrahim/detec2:latest
         
   deploy:
     needs: build
