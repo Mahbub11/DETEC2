@@ -20,7 +20,7 @@ jobs:
         working-directory:
           ./frontend
         run: docker build -t mahbubrahim/det:frontend . 
-      - name: push docker hub backend
+      - name: push docker hub backend1
         run: docker push ${{ secrets.DOCKER_USERNAME }}/det:backend 
       - name: push docker hub frontend
         run: docker push ${{ secrets.DOCKER_USERNAME }}/det:frontend 
